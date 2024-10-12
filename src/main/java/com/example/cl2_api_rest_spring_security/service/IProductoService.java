@@ -7,8 +7,7 @@ import java.util.Optional;
 
 public interface IProductoService {
 
-    List<Producto> obtenerProductos();
-    Optional<Producto> buscarProductoXId(int id);
-    String registrarProducto(Producto p);
-    String actualizarProducto(Producto p);
+    List<Producto> listarProductos();
+    Optional<Producto> buscarProductoXId(Integer id);
+    Producto guardarProducto(Producto p);
 }
