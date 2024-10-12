@@ -1,7 +1,6 @@
 package com.example.cl2_api_rest_spring_security.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +10,9 @@ import lombok.Setter;
 @Table(name = "productos")
 public class Producto {
 
-    private int idProducto;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idproducto;
     private String nombre;
     private String descripcion;
     private double precio;
