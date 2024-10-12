@@ -1,6 +1,7 @@
 package com.example.cl2_api_rest_spring_security.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
