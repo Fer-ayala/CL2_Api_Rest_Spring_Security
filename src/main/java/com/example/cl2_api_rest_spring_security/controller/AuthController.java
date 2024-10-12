@@ -63,11 +63,12 @@ public class AuthController {
         return Jwts.builder()
                 .setId(usuario.getIdusuario().toString())
                 .setSubject(usuario.getNomusuario())
+                .claim("email", usuario.getEmail()) // Agregando el email al payload
                 .claim("authorities",
                         authorityList.stream().map(GrantedAuthority::getAuthority)
                                 .collect(Collectors.toList()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 300000000))
+                .setExpiration(new Date(System.currentTimeMillis() + 180000))//Duración del token 3min = 180000ms
                 .signWith(SignatureAlgorithm.HS512, clave.getBytes())
                 .compact();
     }

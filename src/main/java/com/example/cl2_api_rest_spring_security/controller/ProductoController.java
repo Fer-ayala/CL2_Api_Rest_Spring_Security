@@ -27,11 +27,13 @@ public class ProductoController {
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('COORDINADOR') and hasRole('GESTOR')")
     @PostMapping("/registrar")
     public ResponseEntity<Producto> registrarProducto(@RequestBody Producto producto){
         return new ResponseEntity<>(iProductoService.guardarProducto(producto), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('GESTOR')")
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<Producto> actualizarProducto(
             @PathVariable Integer id,
